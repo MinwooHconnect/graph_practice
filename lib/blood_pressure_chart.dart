@@ -1,54 +1,14 @@
 import 'package:flutter/material.dart';
 
-class BloodPressureChartPage extends StatelessWidget {
-  const BloodPressureChartPage({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      body: Padding(
-        padding: const EdgeInsets.all(16.0),
-        child: SizedBox(child: BloodPressureChart()),
-      ),
-    );
-  }
-}
-
 class BloodPressureChart extends StatelessWidget {
-  BloodPressureChart({super.key});
+  final List<BloodPressureData> data;
+  final double spacingFactor;
 
-  final List<BloodPressureData> data = [
-    BloodPressureData(
-      date: "24.12.01",
-      systolic: 140,
-      diastolic: 91,
-      heartRate: 100,
-    ),
-    BloodPressureData(
-      date: "24.12.01",
-      systolic: 100,
-      diastolic: 70,
-      heartRate: 72,
-    ),
-    BloodPressureData(
-      date: "24.12.01",
-      systolic: 140,
-      diastolic: 90,
-      heartRate: 115,
-    ),
-    BloodPressureData(
-      date: "24.12.01",
-      systolic: 120,
-      diastolic: 100,
-      heartRate: 110,
-    ),
-    BloodPressureData(
-      date: "24.12.01",
-      systolic: 140,
-      diastolic: 100,
-      heartRate: 130,
-    ),
-  ];
+  BloodPressureChart({
+    super.key,
+    required this.data,
+    this.spacingFactor = 0.85,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -58,7 +18,11 @@ class BloodPressureChart extends StatelessWidget {
         Expanded(
           child: CustomPaint(
             size: const Size(double.infinity, 300),
-            painter: BloodPressureChartPainter(data, showGridValues: false),
+            painter: BloodPressureChartPainter(
+              data,
+              showGridValues: false,
+              spacingFactor: spacingFactor,
+            ),
           ),
         ),
         const SizedBox(height: 80),
