@@ -12,12 +12,16 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: '혈압 차트',
-      theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.blue),
-        useMaterial3: true,
-      ),
-      home: const BloodPressureChartPage(),
-    );
+        title: '혈압 차트',
+        theme: ThemeData(
+          colorScheme: ColorScheme.fromSeed(seedColor: Colors.blue),
+          useMaterial3: true,
+        ),
+        home: Scaffold(
+          body: Padding(
+            padding: const EdgeInsets.all(50),
+            child: const BloodPressureChartPage(),
+          ),
+        ));
   }
 }
