@@ -353,7 +353,7 @@ class BloodPressureChartPainter extends CustomPainter {
 
       textPainter.text = TextSpan(text: data[i].date, style: textStyle);
       textPainter.layout();
-      textPainter.paint(canvas, Offset(x - textPainter.width / 2, height - 13));
+      textPainter.paint(canvas, Offset(x - textPainter.width / 2, height + 13));
     }
   }
 
